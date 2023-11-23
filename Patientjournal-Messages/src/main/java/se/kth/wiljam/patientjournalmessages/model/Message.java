@@ -12,10 +12,8 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @JsonBackReference(value = "sent-messages")
     private Long sender;
-
 
     @JsonBackReference(value = "received-messages")
     private Long receiver;

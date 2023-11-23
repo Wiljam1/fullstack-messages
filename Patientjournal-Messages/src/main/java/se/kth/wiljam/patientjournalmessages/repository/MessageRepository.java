@@ -18,6 +18,8 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
 
     //List<Message> findBySenderUsernameAndReceiverUsername(String senderUsername, String receiverUsername);
 
+    List<Message> findBySender(Long senderId);
+
     @Query("SELECT m FROM Message m " +
             "WHERE (m.sender = :senderId AND m.receiver = :receiverId) " +
             "OR (m.receiver = :senderId AND m.sender = :receiverId)")
@@ -25,4 +27,5 @@ public interface MessageRepository extends JpaRepository<Message, Long> {
             @Param("senderId") Long senderId,
             @Param("receiverId") Long receiverId
     );
+
 }

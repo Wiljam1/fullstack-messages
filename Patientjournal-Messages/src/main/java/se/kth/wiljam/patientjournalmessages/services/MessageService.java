@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import se.kth.wiljam.patientjournalmessages.model.Message;
 import se.kth.wiljam.patientjournalmessages.repository.MessageRepository;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -30,5 +31,9 @@ public class MessageService {
 
     public List<Message> getConversation(Long senderId, Long receiverId) {
         return messageRepository.findBySenderIdAndReceiverIdOrReceiverIdAndSenderId(senderId, receiverId);
+    }
+
+    public List<Message> getSentMessages(Long senderId) {
+        return messageRepository.findBySender(senderId);
     }
 }

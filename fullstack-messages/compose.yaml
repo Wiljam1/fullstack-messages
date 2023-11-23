@@ -1,0 +1,11 @@
+version: '3'
+services:
+  messages:
+    build:
+      context: ./
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/messages
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: wiljamniklas

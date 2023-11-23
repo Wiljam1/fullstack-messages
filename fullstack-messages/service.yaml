@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fullstack-messages
+spec:
+  selector:
+    app: fullstack-messages
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8083
+      nodePort: 30083  # range 30000-32767
+  type: NodePort

@@ -6,6 +6,6 @@ services:
     ports:
       - "8083:8083"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/patientjournal
+      SPRING_DATASOURCE_URL: jdbc:mysql://130.237.83.249:2781/messages
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: wiljamniklas

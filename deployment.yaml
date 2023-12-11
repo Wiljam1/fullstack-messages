@@ -15,12 +15,3 @@ spec:
       containers:
         - name: fullstack-messages
           image: wiljam/fullstack-messages:latest
-          ports:
-            - containerPort: 8083
-          env:
-            - name: SPRING_DATASOURCE_URL
-              value: jdbc:mysql://mysql-service:3306/patientjournal
-            - name: SPRING_DATASOURCE_USERNAME
-              value: root
-            - name: SPRING_DATASOURCE_PASSWORD
-              value: wiljamniklas

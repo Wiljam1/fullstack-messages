@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: fullstack-messages
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: fullstack-messages
@@ -15,3 +15,12 @@ spec:
       containers:
         - name: fullstack-messages
           image: wiljam/fullstack-messages:latest
+          ports:
+            - containerPort: 8082
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:mysql://mysql-service:3306/messages
+            - name: SPRING_DATASOURCE_USERNAME
+              value: root
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: wiljamniklas

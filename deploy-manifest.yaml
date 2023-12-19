@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fullstack-messages
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fullstack-messages
+  template:
+    metadata:
+      labels:
+        app: fullstack-messages
+    spec:
+      containers:
+        - name: fullstack-messages
+          image: registry.cloud.cbh.kth.se/deploy-a78aedc2-6b67-4c2c-95aa-abdd5901e6bb/messages-wwnr
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fullstack-messages
+spec:
+  selector:
+    app: fullstack-messages
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8083

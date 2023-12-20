@@ -3,8 +3,6 @@ COPY src /app/src
 COPY pom.xml /app
 RUN mvn -f app/pom.xml install
 
-0.0.1-SNAPSHOT
-
 FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 COPY --from=build /app/target/fullstack-messages-0.0.1-SNAPSHOT.jar /app/fullstack-messages-0.0.1-SNAPSHOT.jar

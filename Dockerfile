@@ -1,11 +1,12 @@
-FROM maven:3.8.4-openjdk-17-slim AS build
+FROM maven:3.8.1-openjdk-17-slim AS build
 COPY src /app/src
 COPY pom.xml /app
-RUN mvn -f /app/pom.xml install
+RUN mvn -f app/pom.xml install
 
+0.0.1-SNAPSHOT
 
-FROM openjdk:17-jdk-slim
+FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
-COPY --from=build /app/target/fullstack-messages-0.0.1-SNAPSHOT.jar /app/fullstack-users-1.0.jar
-EXPOSE 8083
-ENTRYPOINT ["java", "-jar", "/app/target/fullstack-messages.jar"]
+COPY --from=build /app/target/fullstack-messages-0.0.1-SNAPSHOT.jar /app/fullstack-messages-0.0.1-SNAPSHOT.jar
+EXPOSE 8081
+ENTRYPOINT ["java", "-jar", "/app/fullstack-messages-0.0.1-SNAPSHOT.jar"]

@@ -8,7 +8,7 @@ import se.kth.nrww.fullstackmessages.services.MessageService;
 import java.util.List;
 
 @RestController
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin
 public class MessageController {
 
     @Autowired

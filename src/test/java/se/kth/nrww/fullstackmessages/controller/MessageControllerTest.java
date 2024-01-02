@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import se.kth.nrww.fullstackmessages.controller.MessageController;
@@ -46,6 +47,7 @@ class MessageControllerTest {
     }
 
     @Test
+    @WithMockUser
     void newMessage() throws Exception {
         assertNotNull(messageService);
         Message inputMessage = new Message();
@@ -61,6 +63,7 @@ class MessageControllerTest {
     }
 
     @Test
+    @WithMockUser
     void getConversation() throws Exception {
         assertNotNull(messageService);
         Long senderId = 1L;
@@ -77,6 +80,7 @@ class MessageControllerTest {
     }
 
     @Test
+    @WithMockUser
     void getSentMessages() throws Exception {
         assertNotNull(messageService);
         Long senderId = 1L;
